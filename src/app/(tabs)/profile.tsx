@@ -2,7 +2,7 @@ import { View, Text, ScrollView, Pressable } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Ionicons } from '@expo/vector-icons'
-import { router } from 'expo-router'
+import { Href, router } from 'expo-router'
 
 type IconName = React.ComponentProps<typeof Ionicons>['name']
 
@@ -24,40 +24,42 @@ const summary = [
   },
 ]
 const settings = [
-  {
-    title: 'Payment Methods',
-    subtitle: 'Manage your cards and accounts',
-    icon: 'card-outline',
-  },
+  
   {
     title: 'Expense Limits',
     subtitle: 'Set monthly spending limits',
     icon: 'bar-chart-outline',
+        linktopage:"/(profiles)/aboutapp" as Href
   },
   {
     title: 'Notifications',
     subtitle: 'Manage your notification preferences',
     icon: 'notifications-outline',
+        linktopage:"/(profiles)/aboutapp" as Href
   },
   {
     title: 'Privacy & Security',
     subtitle: 'Password, biometric, data control',
     icon: 'shield-checkmark-outline',
+        linktopage:"/(profiles)/aboutapp" as Href
   },
   {
     title: 'Help & Support',
     subtitle: 'Get help and contact us',
     icon: 'help-circle-outline',
+        linktopage:"/(profiles)/aboutapp" as Href
   },
   {
     title: 'Terms & Conditions',
     subtitle: 'Read our terms and policies',
     icon: 'document-text-outline',
+        linktopage:"/(profiles)/aboutapp" as Href
   },
   {
     title: 'About App',
     subtitle: 'Version 1.0.0',
     icon: 'information-circle-outline',
+    linktopage:"/(profiles)/aboutapp" as Href
   },
 ]
 
@@ -176,7 +178,7 @@ export default function profile() {
 
 
 {settings.map((item, index) => (
-  <Pressable key={item.title}>
+  <Pressable onPress={()=>router.push(item.linktopage)} key={item.title}>
 
     <View className="flex-row items-center px-5 py-4">
 

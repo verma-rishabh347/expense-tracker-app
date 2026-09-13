@@ -23,10 +23,10 @@ const actions = [
     link: '/(tabs)/reports'as Href
   },
   {
-    title: 'Manage Categories',
+    title: 'View Profile',
     icon: 'grid',
     color: 'bg-orange-500',
-    link: '/categories' as Href
+    link: '/(tabs)/profile' as Href
   },
 ]
 const transactions = [
@@ -223,17 +223,12 @@ export default function index() {
         {/* Quick Actions */}
         <View className="mt-8">
 
-          <View className="flex-row justify-between items-center mb-4">
+          <View className="flex-row  items-center mb-4">
 
             <Text className="text-white text-2xl font-bold">
               Quick Actions
             </Text>
 
-            <Pressable>
-              <Text className="text-green-500 text-base font-medium">
-                See All
-              </Text>
-            </Pressable>
 
           </View>
 
@@ -282,7 +277,7 @@ export default function index() {
               Recent Transactions
             </Text>
 
-            <Pressable>
+            <Pressable onPress={()=>router.replace("/(tabs)/transactions")} >
               <Text className="text-green-500 text-base font-medium">
                 See All
               </Text>
